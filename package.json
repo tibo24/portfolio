@@ -34,6 +34,7 @@
 		"@threlte/extras": "^9.7.1",
 		"@types/three": "^0.182.0",
 		"daisyui": "^5.5.14",
+		"svelte-highlight": "^7.9.0",
 		"tailwindcss": "^4.1.18",
 		"three": "^0.182.0"
 	}

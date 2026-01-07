@@ -3,7 +3,20 @@
 	import { modals } from '$lib/stores';
 	import { Canvas } from '@threlte/core';
 	import FanScene from './scenes/FanScene.svelte';
+
+	import Highlight from 'svelte-highlight';
+	import arduino from 'svelte-highlight/languages/arduino';
+	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
+
+	let code_serial_start = `char serial_command_buffer_[32];
+SerialCommands serial_commands_(&Serial, serial_command_buffer_, sizeof(serial_command_buffer_), "\\r\\n", " ");
+SerialCommand cmd_switch_("SWITCH", cmd_switch);
+SerialCommand cmd_pwm_("PWM", cmd_pwm);`;
 </script>
+
+<svelte:head>
+	{@html atomOneDark}
+</svelte:head>
 
 {#if $modals.fan_sturing}
 	<div class="modal modal-open top-7">
@@ -142,7 +155,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="divider"></div>
 
 			<h2 class="text-3xl font-bold mb-2 mt-6">PCB</h2>
@@ -172,12 +185,31 @@
 					</div>
 				</div>
 			</div>
-			<!-- TODO leg uit fout in schema en hoe opgelost + foto van afgewerkte pcb -->
+			<p class="mb-4">
+				Na het solderen van alle componenten op de printplaat, kon voor het eerst getest worden of dit werkte. Hier botste ik tegen een probleem dat ik de
+				relais niet gestuurd kreeg. Na grondig uitzoeken ben ik er op uit gekomen dat de pulldown die aan de collector van de BC337 transistoren staat, niet
+				nodig is en voorkomt dat de relais geschakeld wordt. Dit heb ik opgelost door de weerstand te vervangen door een kopere brug. Na deze wijziging werkt
+				volledig.
+			</p>
 
 			<div class="divider"></div>
 
+			<h2 class="text-3xl font-bold mb-2 mt-6">Arduino code</h2>
+			<p class="mb-4">
+				De Arduino ontvangt via seriële communicatie commando's die gebruikt worden om de aansturing van de relais en PWM-signalen. Daarnaast stuurt deze ook
+				elke seconde de status van alle relais, de waarde van de PWM-signalen en de uitgelezen tachometer waarden.
+			</p>
+			<p class="mb-4">Hieronder zie je voorbeeld code hoe de seriele commando's gelezen worden en hoe deze geactiveerd worden.</p>
+			<Highlight language={arduino} code={code_serial_start} />
+			<p class="mt-4 mb-2">Dit laat toe dat de volgende commando's gebruikt kunnen worden voor de aansturing:</p>
+			<p class="my-1 ms-4 rounded-md px-2 bg-base-300 w-max"><code>{'SWITCH <ALL|1|2|3> <ON|OFF|HIGH|LOW>'}</code></p>
+			<p class="my-1 ms-4 rounded-md px-2 bg-base-300 w-max"><code>{'PWM <ALL|1|2&> <0-255>'}</code></p>
+
+			<div class="divider"></div>
+			<h2 class="text-3xl font-bold mb-2 mt-6">VB.Net</h2>
+			<!-- TODO vbnet program simple versie -->
+
 			<h2 class="text-3xl font-bold mb-2 mt-6">Resultaat</h2>
-			<!-- TODO resultaat, arduino code, vbnet program simple versie -->
 			<div>
 				<div class="md:col-span-2"></div>
 				<div class="md:col-span-3">
