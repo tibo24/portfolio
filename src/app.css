@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+
+@plugin "daisyui/theme" {
+	name: 'dark';
+	default: false;
+	prefersdark: true;
+	color-scheme: 'dark';
+	--color-base-100: oklch(25.33% 0.016 252.42);
+	--color-base-200: oklch(23.26% 0.014 253.1);
+	--color-base-300: oklch(21.15% 0.012 254.09);
+	--color-base-content: oklch(97.807% 0.029 256.847);
+	--color-primary: oklch(64.9% 0.198 41.116);
+	--color-primary-content: rgb(249 241 254);
+	--color-secondary: #7dd3fc;
+	--color-secondary-content: oklch(27% 0.006 286.033);
+	--color-accent: #ff9958;
+	--color-accent-content: oklch(26% 0 0);
+	--color-neutral: oklch(27.441% 0.013 253.041);
+	--color-neutral-content: oklch(85.488% 0.002 253.041);
+	--color-info: oklch(74% 0.16 232.661);
+	--color-info-content: oklch(29% 0.066 243.157);
+	--color-success: oklch(76% 0.177 163.223);
+	--color-success-content: oklch(37% 0.077 168.94);
+	--color-warning: oklch(82% 0.189 84.429);
+	--color-warning-content: oklch(41% 0.112 45.904);
+	--color-error: oklch(71% 0.194 13.428);
+	--color-error-content: oklch(27% 0.105 12.094);
+}
+
+@plugin "daisyui/theme" {
+	name: 'light';
+	default: true;
+	prefersdark: false;
+	color-scheme: 'light';
+	--color-base-100: oklch(100% 0 0);
+	--color-base-200: oklch(87% 0 0);
+	--color-base-300: oklch(55% 0 0);
+	--color-base-content: oklch(14% 0 0);
+	--color-primary: oklch(70% 0.213 47.604);
+	--color-primary-content: oklch(0% 0 0);
+	--color-secondary: #7dd3fc;
+	--color-secondary-content: oklch(27% 0.006 286.033);
+	--color-accent: oklch(47% 0.137 46.201);
+	--color-accent-content: oklch(96% 0.007 247.896);
+	--color-neutral: oklch(27.441% 0.013 253.041);
+	--color-neutral-content: oklch(85.488% 0.002 253.041);
+	--color-info: oklch(74% 0.16 232.661);
+	--color-info-content: oklch(29% 0.066 243.157);
+	--color-success: oklch(76% 0.177 163.223);
+	--color-success-content: oklch(37% 0.077 168.94);
+	--color-warning: oklch(82% 0.189 84.429);
+	--color-warning-content: oklch(41% 0.112 45.904);
+	--color-error: oklch(71% 0.194 13.428);
+	--color-error-content: oklch(27% 0.105 12.094);
+}
+
+
+html {
+	scroll-behavior: smooth;
+	font-family: 'Inter', system-ui, sans-serif
+}
+
+[data-theme='dark'] .text-tinted {
+	color: var(--color-neutral-400);
+}
+
+[data-theme='light'] .text-tinted {
+	color: var(--color-neutral-700);
+}
