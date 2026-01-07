@@ -5,6 +5,7 @@
 	import { activeSection } from '$lib/stores';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	let { children } = $props();
+	export const prerender = true;
 </script>
 
 <svelte:head>
