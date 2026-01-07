@@ -18,14 +18,14 @@
 				<Icon src={Bars3CenterLeft} class="h-8" />
 			</button>
 
-			<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 shadow">
-				<li><a href="#home">Home</a></li>
-				<li><a href="#about">Over mij</a></li>
-				<li><a href="#projecten">Projecten</a></li>
-				<li><a href="#stage">Stage</a></li>
+			<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 shadow uppercase">
+				<li><a href="#home" class:active={$activeSection === 'home'}>Home</a></li>
+				<li><a href="#about" class:active={$activeSection === 'about'}>Over mij</a></li>
+				<li><a href="#projecten" class:active={$activeSection === 'projecten'}>Projecten</a></li>
+				<li><a href="#stage" class:active={$activeSection === 'stage'}>Stage</a></li>
 			</ul>
 		</div>
-		<ul class="menu menu-horizontal px-1 py-0 hidden md:flex">
+		<ul class="menu menu-horizontal px-1 py-0 hidden md:flex uppercase">
 			<li><a href="#home" class:active={$activeSection === 'home'}>Home</a></li>
 			<li><a href="#about" class:active={$activeSection === 'about'}>Over mij</a></li>
 			<li><a href="#projecten" class:active={$activeSection === 'projecten'}>Projecten</a></li>

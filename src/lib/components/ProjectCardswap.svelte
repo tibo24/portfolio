@@ -1,12 +1,12 @@
 <script>
 	import { CardSwapAnimation, CardTextures } from '$lib/assets/projects/card-swap';
-	import { tools } from '$lib/assets/tools';
+	import { tools } from '$lib/constants/tools';
 	import { modals } from '$lib/stores';
 </script>
 
 {#if $modals.cardswap}
 	<div class="modal modal-open">
-		<div class="modal-box max-w-5xl px-16 max-h-8/12">
+		<div class="modal-box max-w-5xl px-12 max-h-8/12">
 			<h2 class="font-bold text-3xl text-center mb-8">Project cardswap</h2>
 			<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
 				<enhanced:img src={CardSwapAnimation} alt="Cardswap example" class="md:col-span-2" loading="lazy" />

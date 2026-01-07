@@ -69,3 +69,11 @@ html {
 [data-theme='light'] .text-tinted {
 	color: var(--color-neutral-700);
 }
+
+[data-theme='dark'] .top-effect {
+	@apply bg-linear-to-b from-gray-800/80 to-gray-800/0;
+}
+
+[data-theme='light'] .top-effect {
+	@apply bg-linear-to-b from-slate-400/70 to-slate-400/0;
+}

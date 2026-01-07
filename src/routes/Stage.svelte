@@ -20,7 +20,7 @@
 				quidem? Corporis fugit beatae quas eum architecto! Quasi consectetur error recusandae.
 			</p>
 		</div>
-		<enhanced:img src={Sodego} class="col-span-3 w-full" alt="Logo Sodego" />
+		<img src={Sodego} class="col-span-3 w-full" alt="Logo Sodego" loading="lazy" />
 
 		<div class="divider col-span-12"></div>
 		<div class="col-span-3">
@@ -43,8 +43,7 @@
 				een tentoonstelling
 			</p>
 			<iframe
-				width="560"
-				height="315"
+				class="w-full max-w-md aspect-video"
 				loading="lazy"
 				src="https://www.youtube-nocookie.com/embed/naAPv_sWtGg?si=UcBzeCX4NuD180wP"
 				title="YouTube video player"

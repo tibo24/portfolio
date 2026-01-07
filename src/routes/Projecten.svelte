@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { CardSwap1, CardSwap2, CardSwap3, CardSwap4 } from '$lib/assets/projects/card-swap';
-	import { StempelRender } from '$lib/assets/projects/stempel';
-	import { tools, type ToolKey } from '$lib/assets/tools';
-	import { ProjectCardswap, ProjectModelGen } from '$lib/components';
+	import { tools, type ToolKey } from '$lib/constants/tools';
+	import { ProjectCardswap, ProjectModelGen, ProjectFansturing } from '$lib/components';
 	import { modals } from '$lib/stores';
 </script>
 
@@ -21,10 +19,10 @@
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 		<div class="card bg-base-200">
 			<figure class="hover-gallery h-full">
-				<enhanced:img src={CardSwap1} alt="Cardswap example" loading="lazy" />
-				<enhanced:img src={CardSwap2} alt="Cardswap example" loading="lazy" />
-				<enhanced:img src={CardSwap3} alt="Cardswap example" loading="lazy" />
-				<enhanced:img src={CardSwap4} alt="Cardswap example" loading="lazy" />
+				<img src="/images/cardswap/cardswap_1.webp" alt="Cardswap example" loading="lazy" />
+				<img src="/images/cardswap/cardswap_2.webp" alt="Cardswap example" loading="lazy" />
+				<img src="/images/cardswap/cardswap_3.webp" alt="Cardswap example" loading="lazy" />
+				<img src="/images/cardswap/cardswap_4.webp" alt="Cardswap example" loading="lazy" />
 			</figure>
 			<div class="card-body p-4">
 				<h2 class="card-title mb-2 self-center">Project Cardswap</h2>
@@ -42,18 +40,8 @@
 				<h2 class="card-title self-center mb-2">Portfolio</h2>
 				{@render Tools(['Svelte', 'TypeScript', 'TailwindCSS', 'DaisyUI', 'Threlte'])}
 				<div class="card-actions justify-end">
-					<a class="btn btn-primary" href="https://www.github.com">Github</a>
-					<!-- TODO REPLACE LINK -->
+					<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://github.com/tibo24/portfolio">Github</a>
 				</div>
-			</div>
-		</div>
-		<div class="card bg-base-200">
-			<figure>
-				<img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
-			</figure>
-			<div class="card-body p-4">
-				<h2 class="card-title mb-2 self-center">Project 4.0</h2>
-				<div class="flex absolute bottom-2 left-2 gap-2 py-4 px-2">Fucked</div>
 			</div>
 		</div>
 		<div class="card bg-base-200">
@@ -64,13 +52,13 @@
 				<h2 class="card-title mb-2 self-center">Fan sturing</h2>
 				{@render Tools(['Arduino', 'PCB', 'VBNet'])}
 				<div class="card-actions justify-end">
-					<button class="btn btn-primary">Meer info</button>
+					<button class="btn btn-primary" onclick={() => ($modals.fan_sturing = true)}>Meer info</button>
 				</div>
 			</div>
 		</div>
 		<div class="card bg-base-200">
 			<figure>
-				<enhanced:img src="{StempelRender}?w=640" alt="Voorbeeld stempel" loading="lazy" />
+				<img src="/images/stempel/stempel-render.webp" alt="Voorbeeld stempel" loading="lazy" />
 			</figure>
 			<div class="card-body p-4">
 				<h2 class="card-title mb-2 self-center">3D stempel generator</h2>
@@ -85,6 +73,7 @@
 
 <ProjectCardswap />
 <ProjectModelGen />
+<ProjectFansturing />
 
 <style lang="postcss">
 	.card {

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Envelope, Icon } from 'svelte-hero-icons';
-	import Foto from '$lib/assets/foto_ik.jpg';
 	import { vaardigheden } from '$lib/constants/vaardigheden';
 </script>
 
@@ -17,10 +16,10 @@
 			</div>
 		</div>
 		<div class="card bg-base-200">
-			<enhanced:img class="mt-4 max-w-40 mx-auto mask mask-squircle" src={Foto} alt="Foto van mezelf" />
+			<img class="mt-4 max-w-40 mx-auto mask mask-squircle" src="/images/foto_ik.webp" alt="Foto van mezelf" />
 			<div class="card-body text-center">
 				<h2 class="card-title self-center font-bold">Tibo Vermunicht</h2>
-				<p class="text-accent font-semibold">Student Applicatie Ontwikkeling</p>
+				<p class="text-accent font-semibold">Student Applicatieontwikkeling</p>
 				<div class="divider my-2"></div>
 				<p class="text-accent font-semibold">Contact</p>
 				<div class="text-left w-fit m-auto">
@@ -51,7 +50,6 @@
 					{/each}
 				</div>
 			{/each}
-			<div></div>
 		</div>
 	</div>
 </div>

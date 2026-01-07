@@ -15,7 +15,7 @@ import {
 	TailwindCSS,
 	TypeScript,
 	VBNet
-} from '$lib/assets/tools';
+} from '$lib/constants/tools';
 
 export const vaardigheden = [
 	{
