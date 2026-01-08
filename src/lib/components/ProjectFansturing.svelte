@@ -6,12 +6,27 @@
 
 	import Highlight from 'svelte-highlight';
 	import arduino from 'svelte-highlight/languages/arduino';
+	import vbnet from 'svelte-highlight/languages/vbnet';
 	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
 
 	let code_serial_start = `char serial_command_buffer_[32];
 SerialCommands serial_commands_(&Serial, serial_command_buffer_, sizeof(serial_command_buffer_), "\\r\\n", " ");
 SerialCommand cmd_switch_("SWITCH", cmd_switch);
 SerialCommand cmd_pwm_("PWM", cmd_pwm);`;
+
+	let code_serial_read = `Private _serialPort As New SerialPort()
+_serialPort.PortName = "COM3"
+_serialPort.BaudRate = 9600
+...
+
+AddHandler _serialPort.DataReceived, AddressOf DataReceivedHandler
+_serialPort.Open()
+
+' Read data in DataReceivedHandler
+Dim inData As String = serialPort.ReadLine()
+
+' Send data
+_serialPort.Write($"SWITCH {btn.Tag} ON" & vbCrLf)`;
 </script>
 
 <svelte:head>
@@ -185,12 +200,13 @@ SerialCommand cmd_pwm_("PWM", cmd_pwm);`;
 					</div>
 				</div>
 			</div>
-			<p class="mb-4">
+			<p class="mb-4 mt-4">
 				Na het solderen van alle componenten op de printplaat, kon voor het eerst getest worden of dit werkte. Hier botste ik tegen een probleem dat ik de
 				relais niet gestuurd kreeg. Na grondig uitzoeken ben ik er op uit gekomen dat de pulldown die aan de collector van de BC337 transistoren staat, niet
 				nodig is en voorkomt dat de relais geschakeld wordt. Dit heb ik opgelost door de weerstand te vervangen door een kopere brug. Na deze wijziging werkt
 				volledig.
 			</p>
+			<img src="/images/fan-sturing/pcb.webp" alt="Gesoldeerde PCB" class="w-full max-h-96 object-contain rounded-2xl" />
 
 			<div class="divider"></div>
 
@@ -203,13 +219,36 @@ SerialCommand cmd_pwm_("PWM", cmd_pwm);`;
 			<Highlight language={arduino} code={code_serial_start} />
 			<p class="mt-4 mb-2">Dit laat toe dat de volgende commando's gebruikt kunnen worden voor de aansturing:</p>
 			<p class="my-1 ms-4 rounded-md px-2 bg-base-300 w-max"><code>{'SWITCH <ALL|1|2|3> <ON|OFF|HIGH|LOW>'}</code></p>
-			<p class="my-1 ms-4 rounded-md px-2 bg-base-300 w-max"><code>{'PWM <ALL|1|2&> <0-255>'}</code></p>
+			<p class="my-1 ms-4 rounded-md px-2 bg-base-300 w-max"><code>{'PWM <ALL|1|2> <0-255>'}</code></p>
 
 			<div class="divider"></div>
-			<h2 class="text-3xl font-bold mb-2 mt-6">VB.Net</h2>
-			<!-- TODO vbnet program simple versie -->
+			<h2 class="text-3xl font-bold mb-2 mt-6">VB.Net-applicatie</h2>
+			<p class="mb-4">Als demo heb ik een eenvoudige VB.Net-applicatie ontwikkeld die de ventilatoren aanstuurt via seriële communicatie.</p>
+			<p class="mb-4">
+				In het scherm staan bovenaan knoppen waarmee de relais die de groepen aansturen mee kan bedient worden. Bij de eerste twee groepen staat een trackbar
+				onder waarmee je de PWM-waarde van 0 to 255 kan instellen en een knop om deze waarde door te sturen.
+			</p>
+			<p class="mb-4">
+				Bovenaan het scherm bevinden zich knoppen om de relais te bedienen die de verschillende groepen schakelen. Voor de eerste twee groepen is er een
+				trackbar voorzien waarmee de PWM-waarde van 0 tot 255 kan worden ingesteld, samen met een knop om deze waarde door te sturen
+			</p>
+			<p class="mb-4">Links staat een ListView waarin de ingelezen waarden worden weergegeven.</p>
+			<p class="mb-4">
+				De applicatie is bewust eenvoudig gehouden en beperkt in functionaliteit, aangezien er geen specifieke vereisten waren voor de gewenste mogelijkheden.
+			</p>
+			<img src="/images/fan-sturing/vbnet-form.webp" alt="Demo form" class="w-full max-h-96 object-contain rounded-2xl" />
+			<p class="my-4">Onderstaande code geeft een voorbeeld hoe de seriële communicatie kan aangepakt worden.</p>
+			<Highlight code={code_serial_read} language={vbnet} />
 
-			<h2 class="text-3xl font-bold mb-2 mt-6">Resultaat</h2>
+			<div class="divider"></div>
+
+			<h2 class="text-3xl font-bold mb-2 mt-6">Conclusie</h2>
+			<p class="mb-4">
+				Dit project vormde een interessante uitdaging, aangezien het schema en de PCB volledig op basis van research zijn ontworpen. Ondanks één kleine fout —
+				die eenvoudig kan worden opgelost door op de bestaande printplaten een koperen brug te solderen in plaats van de voorziene weerstand — is het ontwerp
+				uiteindelijk succesvol gebleken. Bovendien was het fijn om opnieuw met elektronica bezig te zijn.
+			</p>
+
 			<div>
 				<div class="md:col-span-2"></div>
 				<div class="md:col-span-3">

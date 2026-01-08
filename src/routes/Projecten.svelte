@@ -45,8 +45,12 @@
 			</div>
 		</div>
 		<div class="card bg-base-200">
+			<figure class="hover-gallery h-full">
+				<img src="/images/fan-sturing/pcb-thumbnail.webp" alt="Fan sturing PCB" loading="lazy"/>
+				<img src="/images/fan-sturing/pcb-thumbnail-2.webp" alt="Fan sturing PCB" loading="lazy"/>
+				<img src="/images/fan-sturing/pcb-thumbnail-3.webp" alt="Fan sturing PCB" loading="lazy"/>
+			</figure>
 			<figure>
-				<img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Shoes" />
 			</figure>
 			<div class="card-body p-4">
 				<h2 class="card-title mb-2 self-center">Fan sturing</h2>
