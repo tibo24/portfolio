@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Sodego from '$lib/assets/Sodego-logo.svg';
 	import { DocumentText, Icon } from 'svelte-hero-icons';
 </script>
 
@@ -20,7 +19,7 @@
 				quidem? Corporis fugit beatae quas eum architecto! Quasi consectetur error recusandae.
 			</p>
 		</div>
-		<img src={Sodego} class="col-span-3 w-full" alt="Logo Sodego" loading="lazy" />
+		<img src="/images/Sodego-logo.svg" class="col-span-3 w-full" alt="Logo Sodego" loading="lazy" />
 
 		<div class="divider col-span-12"></div>
 		<div class="col-span-3">

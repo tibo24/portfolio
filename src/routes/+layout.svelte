@@ -1,5 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
 	import { Icon, Bars3CenterLeft } from 'svelte-hero-icons';
 	import '../app.css';
 	import { activeSection } from '$lib/stores';
@@ -9,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/favicon.svg" />
 </svelte:head>
 <div class="navbar bg-base-100 shadow-sm py-3!">
 	<div class="navbar-start">

@@ -61,8 +61,11 @@
 			</div>
 		</div>
 		<div class="card bg-base-200">
-			<figure>
-				<img src="/images/stempel/stempel-render.webp" alt="Voorbeeld stempel" loading="lazy" />
+			<figure class="hover-gallery h-full">
+				<img src="/images/stempel/stempel-render-1.webp" alt="Render stempel" loading="lazy"/>
+				<img src="/images/stempel/stempel-render-1.webp" alt="Render stempel" loading="lazy"/>
+				<img src="/images/stempel/stempel-render-2.webp" alt="Render stempel" loading="lazy"/>
+				<img src="/images/stempel/stempel-render-3.webp" alt="Render stempel" loading="lazy"/>
 			</figure>
 			<div class="card-body p-4">
 				<h2 class="card-title mb-2 self-center">3D stempel generator</h2>

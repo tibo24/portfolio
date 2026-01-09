@@ -12,8 +12,9 @@
 <style lang="postcss">
 	.cont {
 		min-height: calc(100vh - 64px);
-		background-image: url(/background.png);
+		background-image: url(/images/background_dark_4k.webp);
 		background-size: cover;
+		background-repeat: no-repeat;
 	}
 
 	.mockup-code::before {

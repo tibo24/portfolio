@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
-
 @plugin "daisyui/theme" {
 	name: 'dark';
 	default: false;
@@ -34,10 +33,10 @@
 	default: true;
 	prefersdark: false;
 	color-scheme: 'light';
-	--color-base-100: oklch(100% 0 0);
-	--color-base-200: oklch(87% 0 0);
-	--color-base-300: oklch(55% 0 0);
-	--color-base-content: oklch(14% 0 0);
+	--color-base-100: oklch(98% 0.004 255);
+	--color-base-200: oklch(93% 0.004 255);
+	--color-base-300: oklch(86% 0.004 255);
+	--color-base-content: oklch(20% 0.015 255);
 	--color-primary: oklch(70% 0.213 47.604);
 	--color-primary-content: oklch(0% 0 0);
 	--color-secondary: #7dd3fc;
@@ -56,10 +55,9 @@
 	--color-error-content: oklch(27% 0.105 12.094);
 }
 
-
 html {
 	scroll-behavior: smooth;
-	font-family: 'Inter', system-ui, sans-serif
+	font-family: 'Inter', system-ui, sans-serif;
 }
 
 [data-theme='dark'] .text-tinted {
@@ -75,5 +73,5 @@ html {
 }
 
 [data-theme='light'] .top-effect {
-	@apply bg-linear-to-b from-slate-400/70 to-slate-400/0;
+	@apply bg-linear-to-b from-slate-300/70 to-slate-300/0;
 }
